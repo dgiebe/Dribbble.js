@@ -43,7 +43,11 @@ function parseShots (shots)
 		var shot = shots.shots[i];
 		htmlString = htmlString+"\n<li class=\"dribbble_shot\">";
 		htmlString = htmlString+"<a href=\""+shot.url+"\">";
-		htmlString = htmlString+"<img src=\""+shot.image_url+"\" alt=\""+shot.title+"\" />";
+		if (shot.image_400_url) {
+      htmlString = htmlString+"<img src=\""+shot.image_400_url+"\" alt=\""+shot.title+"\" width=\"400\" height=\"300\"/>";
+    } else {
+      htmlString = htmlString+"<img src=\""+shot.image_url+"\" alt=\""+shot.title+"\" width=\"400\" height=\"300\"/>";
+    };
 		htmlString = htmlString+"</a>";
 		htmlString = htmlString+"</li>\n";
 	}
